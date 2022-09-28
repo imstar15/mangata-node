@@ -6839,6 +6839,7 @@ dependencies = [
  "sp-io",
  "sp-runtime",
  "sp-std",
+ "test-case",
 ]
 
 [[package]]
