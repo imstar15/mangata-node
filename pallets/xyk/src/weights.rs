@@ -16,6 +16,8 @@ pub trait WeightInfo {
 	fn promote_pool() -> Weight;
 	fn activate_liquidity() -> Weight;
 	fn deactivate_liquidity() -> Weight;
+	fn provide_liquidity_with_conversion() -> Weight;
+	fn compound_rewards() -> Weight;
 }
 
 // For backwards compatibility and tests
@@ -69,5 +71,19 @@ impl WeightInfo for () {
 		(133_607_000 as Weight)
 			.saturating_add(RocksDbWeight::get().reads(7 as Weight))
 			.saturating_add(RocksDbWeight::get().writes(7 as Weight))
+	}
+
+	// todo run on reference machine
+	fn provide_liquidity_with_conversion() -> Weight {
+		(275_376_000 as Weight)
+			.saturating_add(RocksDbWeight::get().reads(17 as Weight))
+			.saturating_add(RocksDbWeight::get().writes(11 as Weight))
+	}
+
+	// todo run on reference machine
+	fn compound_rewards() -> Weight {
+		(220_046_000 as Weight)
+			.saturating_add(T::DbWeight::get().reads(24 as Weight))
+			.saturating_add(T::DbWeight::get().writes(20 as Weight))
 	}
 }
