@@ -89,14 +89,14 @@ match_types! {
 }
 
 pub type Barrier = (
-	TakeWeightCredit,
-	AllowTopLevelPaidExecutionFrom<Everything>,
-	AllowUnpaidExecutionFrom<ParentOrParentsExecutivePlurality>,
+	// TakeWeightCredit,
+	// AllowTopLevelPaidExecutionFrom<Everything>,
+	AllowUnpaidExecutionFrom<Everything>,
 	// ^^^ Parent and its exec plurality get free execution
 	// Expected responses are OK.
-	AllowKnownQueryResponses<PolkadotXcm>,
-	// Subscriptions for version tracking are OK.
-	AllowSubscriptionsFrom<Everything>,
+	// AllowKnownQueryResponses<PolkadotXcm>,
+	// // Subscriptions for version tracking are OK.
+	// AllowSubscriptionsFrom<Everything>,
 );
 
 pub struct ToTreasury;

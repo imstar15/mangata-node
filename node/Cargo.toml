@@ -102,25 +102,25 @@ sp-trie = { git = "https://github.com/mangata-finance/substrate", branch = "mang
 
 
 # Cumulus dependencies
-cumulus-client-cli = { git = 'https://github.com/mangata-finance/cumulus', branch = 'mangata-dev' }
-# cumulus-client-collator = { git = 'https://github.com/mangata-finance/cumulus', branch = mangata-dev' }
-cumulus-client-consensus-aura = { git = 'https://github.com/mangata-finance/cumulus', branch = 'mangata-dev' }
-cumulus-client-consensus-common = { git = 'https://github.com/mangata-finance/cumulus', branch = 'mangata-dev' }
-cumulus-client-network = { git = 'https://github.com/mangata-finance/cumulus', branch = 'mangata-dev' }
-cumulus-client-service = { git = 'https://github.com/mangata-finance/cumulus', branch = 'mangata-dev' }
-cumulus-primitives-core = { git = 'https://github.com/mangata-finance/cumulus', branch = 'mangata-dev' }
-cumulus-primitives-parachain-inherent = { git = 'https://github.com/mangata-finance/cumulus', branch = 'mangata-dev' }
-cumulus-relay-chain-inprocess-interface = { git = 'https://github.com/mangata-finance/cumulus', branch = 'mangata-dev' }
-cumulus-relay-chain-interface = { git = 'https://github.com/mangata-finance/cumulus', branch = 'mangata-dev' }
-cumulus-relay-chain-rpc-interface = { git = 'https://github.com/mangata-finance/cumulus', branch = 'mangata-dev' }
+cumulus-client-cli = { git = 'https://github.com/imstar15/cumulus', branch = 'debug3' }
+# cumulus-client-collator = { git = 'https://github.com/imstar15/cumulus', branch = 'debug3' }
+cumulus-client-consensus-aura = { git = 'https://github.com/imstar15/cumulus', branch = 'debug3' }
+cumulus-client-consensus-common = { git = 'https://github.com/imstar15/cumulus', branch = 'debug3' }
+cumulus-client-network = { git = 'https://github.com/imstar15/cumulus', branch = 'debug3' }
+cumulus-client-service = { git = 'https://github.com/imstar15/cumulus', branch = 'debug3' }
+cumulus-primitives-core = { git = 'https://github.com/imstar15/cumulus', branch = 'debug3' }
+cumulus-primitives-parachain-inherent = { git = 'https://github.com/imstar15/cumulus', branch = 'debug3' }
+cumulus-relay-chain-inprocess-interface = { git = 'https://github.com/imstar15/cumulus', branch = 'debug3' }
+cumulus-relay-chain-interface = { git = 'https://github.com/imstar15/cumulus', branch = 'debug3' }
+cumulus-relay-chain-rpc-interface = { git = 'https://github.com/imstar15/cumulus', branch = 'debug3' }
 
 
 # Polkadot dependencies
-polkadot-cli = { git = "https://github.com/mangata-finance/polkadot", branch = "mangata-dev" }
-polkadot-parachain = { git = "https://github.com/mangata-finance/polkadot", branch = "mangata-dev" }
-polkadot-primitives = { git = "https://github.com/mangata-finance/polkadot", branch = "mangata-dev" }
-polkadot-service = { git = "https://github.com/mangata-finance/polkadot", branch = "mangata-dev" }
-polkadot-test-service = { git = "https://github.com/mangata-finance/polkadot", branch = "mangata-dev" }
+polkadot-cli = { git = "https://github.com/imstar15/polkadot", branch = "debug3" }
+polkadot-parachain = { git = "https://github.com/imstar15/polkadot", branch = "debug3" }
+polkadot-primitives = { git = "https://github.com/imstar15/polkadot", branch = "debug3" }
+polkadot-service = { git = "https://github.com/imstar15/polkadot", branch = "debug3" }
+polkadot-test-service = { git = "https://github.com/imstar15/polkadot", branch = "debug3" }
 
 
 # Mangata dependencies
@@ -131,7 +131,7 @@ pallet-vesting-mangata-rpc = { git = "https://github.com/mangata-finance/substra
 pallet-vesting-mangata-rpc-runtime-api = { git = "https://github.com/mangata-finance/substrate", default-features = false, branch = "mangata-dev" }
 
 # Snowbridge dependencies
-artemis-core = {default-features = false, version = "0.1.1", git = "https://github.com/mangata-finance/snowbridge", branch = "mangata-dev-v0.9.24"}
+artemis-core = {default-features = false, version = "0.1.1", git = "https://github.com/imstar15/snowbridge", branch = "debug3"}
 
 
 [dev-dependencies]
@@ -145,9 +145,9 @@ sp-tracing = { git = "https://github.com/mangata-finance/substrate", branch = "m
 frame-system = { git = "https://github.com/mangata-finance/substrate", branch = "mangata-dev" }
 pallet-transaction-payment = { git = "https://github.com/mangata-finance/substrate", branch = "mangata-dev" }
 frame-system-rpc-runtime-api = { git = "https://github.com/mangata-finance/substrate", branch = "mangata-dev" }
-cumulus-pallet-parachain-system = { git = 'https://github.com/mangata-finance/cumulus', branch = 'mangata-dev'}
-cumulus-test-relay-sproof-builder = { git = 'https://github.com/mangata-finance/cumulus', branch = 'mangata-dev'}
-polkadot-runtime-common = { git = "https://github.com/mangata-finance/polkadot", branch = "mangata-dev" }
+cumulus-pallet-parachain-system = { git = 'https://github.com/imstar15/cumulus', branch = 'debug3'}
+cumulus-test-relay-sproof-builder = { git = 'https://github.com/imstar15/cumulus', branch = 'debug3'}
+polkadot-runtime-common = { git = "https://github.com/imstar15/polkadot", branch = "debug3" }
 sp-consensus-slots = { git = "https://github.com/mangata-finance/substrate", branch = "mangata-dev" }
 futures = "0.3.21"
 schnorrkel = { version = "0.9.1", features = ["preaudit_deprecated", "u64_backend"], default-features = false}
