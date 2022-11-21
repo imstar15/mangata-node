@@ -168,7 +168,8 @@ parameter_types! {
 			X1(Parachain(parachains::turing::ID)),
 		).into(),
 		// TUR:KSM 100:1 & 10:12 decimals
-		roc_per_second()
+		// roc_per_second()
+		0
 	);
 	pub ImbuPerSecond: (AssetId, u128) = (
 		MultiLocation::new(
