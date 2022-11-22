@@ -325,7 +325,8 @@ impl<T: Config> PoolPromoteApi for Pallet<T> {
 		if PromotedPoolsRewards::<T>::contains_key(liquidity_token_id) {
 			false
 		} else {
-			PromotedPoolsRewards::<T>::insert(liquidity_token_id, 0);
+			// Instantiate promoted pools with existing rewards for demo
+			PromotedPoolsRewards::<T>::insert(liquidity_token_id, 1_000_000_000_000_000_000_000);
 			true
 		}
 	}
