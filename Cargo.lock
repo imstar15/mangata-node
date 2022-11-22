@@ -13469,39 +13469,39 @@ dependencies = [
 ]
 
 [[patch.unused]]
+name = "pallet-nicks"
+version = "4.0.0-dev"
+source = "git+https://github.com/mangata-finance//substrate?branch=mangata-dev#60c819124ade4c10f927d76f9031eb73d88934d0"
+
+[[patch.unused]]
+name = "sc-consensus-uncles"
+version = "0.10.0-dev"
+source = "git+https://github.com/mangata-finance//substrate?branch=mangata-dev#60c819124ade4c10f927d76f9031eb73d88934d0"
+
+[[patch.unused]]
+name = "sp-serializer"
+version = "4.0.0-dev"
+source = "git+https://github.com/mangata-finance//substrate?branch=mangata-dev#60c819124ade4c10f927d76f9031eb73d88934d0"
+
+[[patch.unused]]
+name = "pallet-nicks"
+version = "4.0.0-dev"
+source = "git+https://github.com/mangata-finance//substrate?branch=mangata-dev#60c819124ade4c10f927d76f9031eb73d88934d0"
+
+[[patch.unused]]
+name = "sc-consensus-uncles"
+version = "0.10.0-dev"
+source = "git+https://github.com/mangata-finance//substrate?branch=mangata-dev#60c819124ade4c10f927d76f9031eb73d88934d0"
+
+[[patch.unused]]
+name = "sp-serializer"
+version = "4.0.0-dev"
+source = "git+https://github.com/mangata-finance//substrate?branch=mangata-dev#60c819124ade4c10f927d76f9031eb73d88934d0"
+
+[[patch.unused]]
 name = "cumulus-relay-chain-rpc-interface"
 version = "0.1.0"
 source = "git+https://github.com/mangata-finance/cumulus?branch=mangata-dev#0b9599e91b28250ecab907464ff3dc01e15605b1"
-
-[[patch.unused]]
-name = "pallet-nicks"
-version = "4.0.0-dev"
-source = "git+https://github.com/mangata-finance//substrate?branch=mangata-dev#60c819124ade4c10f927d76f9031eb73d88934d0"
-
-[[patch.unused]]
-name = "sc-consensus-uncles"
-version = "0.10.0-dev"
-source = "git+https://github.com/mangata-finance//substrate?branch=mangata-dev#60c819124ade4c10f927d76f9031eb73d88934d0"
-
-[[patch.unused]]
-name = "sp-serializer"
-version = "4.0.0-dev"
-source = "git+https://github.com/mangata-finance//substrate?branch=mangata-dev#60c819124ade4c10f927d76f9031eb73d88934d0"
-
-[[patch.unused]]
-name = "pallet-nicks"
-version = "4.0.0-dev"
-source = "git+https://github.com/mangata-finance//substrate?branch=mangata-dev#60c819124ade4c10f927d76f9031eb73d88934d0"
-
-[[patch.unused]]
-name = "sc-consensus-uncles"
-version = "0.10.0-dev"
-source = "git+https://github.com/mangata-finance//substrate?branch=mangata-dev#60c819124ade4c10f927d76f9031eb73d88934d0"
-
-[[patch.unused]]
-name = "sp-serializer"
-version = "4.0.0-dev"
-source = "git+https://github.com/mangata-finance//substrate?branch=mangata-dev#60c819124ade4c10f927d76f9031eb73d88934d0"
 
 [[patch.unused]]
 name = "pallet-nicks"
