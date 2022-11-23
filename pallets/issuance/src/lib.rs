@@ -8,6 +8,7 @@ use frame_system::pallet_prelude::*;
 use frame_support::{
 	codec::{Decode, Encode},
 	traits::{tokens::currency::MultiTokenCurrency, Get, Imbalance},
+	log,
 };
 use mangata_types::{Balance, TokenId};
 use orml_tokens::MultiTokenCurrencyExtended;
@@ -446,6 +447,7 @@ impl<T: Config> Pallet<T> {
 	}
 
 	pub fn calculate_and_store_round_issuance(current_round: u32) -> DispatchResult {
+		log::error!("calculate_and_store_round_issuance!!!!!");
 		let issuance_config =
 			IssuanceConfigStore::<T>::get().ok_or(Error::<T>::IssuanceConfigNotInitialized)?;
 		let to_be_issued: Balance = issuance_config

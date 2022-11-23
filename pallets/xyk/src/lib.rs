@@ -789,16 +789,23 @@ pub mod pallet {
 					!T::DisabledTokens::contains(&second_asset_id),
 				Error::<T>::FunctionNotAvailableForThisToken
 			);
+
+			log!(error, "Error::<T>::NotEnoughtRewardsEarned 111");
+			log!(error, "calculate_rewards_amount, liquidity_asset_id: {:#?}", liquidity_asset_id);
 			let rewards_all =
 				Pallet::<T>::calculate_rewards_amount(sender.clone(), liquidity_asset_id)?;
+			log!(error, "calculate_rewards_amount, rewards_all: {:#?}", rewards_all);
 			ensure!(rewards_all > 0, Error::<T>::NotEnoughtRewardsEarned);
+			log!(error, "Error::<T>::NotEnoughtRewardsEarned 111 OK");
 
 			let rewards_256 =
 				Into::<U256>::into(rewards_all).saturating_mul(amount_permille.into()).div(1000);
 			let rewards = Balance::try_from(rewards_256)
 				.map_err(|_| DispatchError::from(Error::<T>::MathOverflow))?;
 
+			log!(error, "Error::<T>::NotEnoughtRewardsEarned 222");
 			ensure!(rewards <= rewards_all, Error::<T>::NotEnoughtRewardsEarned);
+			log!(error, "Error::<T>::NotEnoughtRewardsEarned 222 OK");
 
 			<Self as XykFunctionsTrait<T::AccountId>>::claim_rewards(
 				sender.clone(),
@@ -960,6 +967,7 @@ impl<T: Config> Pallet<T> {
 		user: AccountIdOf<T>,
 		liquidity_asset_id: TokenId,
 	) -> Result<Balance, DispatchError> {
+		log!(error, "calculate_rewards_amount!!!");
 		ensure!(Self::is_promoted_pool(liquidity_asset_id), Error::<T>::NotAPromotedPool);
 
 		let current_time: u32 = <frame_system::Pallet<T>>::block_number().saturated_into::<u32>() /
@@ -994,17 +1002,23 @@ impl<T: Config> Pallet<T> {
 			pool_missing_at_last_checkpoint,
 		)?;
 
+		log!(error, "calculate_rewards_amount!!!, work_user: {:#?}, work_pool: {:#?}, liquidity_asset_id: {:#?}", work_user, work_pool, liquidity_asset_id);
+
 		let burned_not_claimed_rewards =
 			LiquidityMiningUserToBeClaimed::<T>::get((user.clone(), &liquidity_asset_id));
 		let current_rewards = Self::calculate_rewards(work_user, work_pool, liquidity_asset_id)?;
 		let already_claimed_rewards =
 			LiquidityMiningUserClaimed::<T>::get((user, &liquidity_asset_id));
 
+		log!(error, "calculate_rewards_amount!!!, current_rewards: {:#?}, burned_not_claimed_rewards: {:#?}, already_claimed_rewards: {:#?}", current_rewards, burned_not_claimed_rewards, already_claimed_rewards);
+
 		let total_available_rewards = current_rewards
 			.checked_add(burned_not_claimed_rewards)
 			.ok_or_else(|| DispatchError::from(Error::<T>::MathOverflow))?
 			.checked_sub(already_claimed_rewards)
 			.ok_or_else(|| DispatchError::from(Error::<T>::MathOverflow))?;
+		
+		log!(error, "calculate_rewards_amount!!!, total_available_rewards: {:#?}", total_available_rewards);
 
 		Ok(total_available_rewards)
 	}
@@ -1014,6 +1028,8 @@ impl<T: Config> Pallet<T> {
 		work_pool: U256,
 		liquidity_asset_id: TokenId,
 	) -> Result<Balance, DispatchError> {
+		log!(error, "calculate_rewards!!!");
+
 		let available_rewards_for_pool: U256 = U256::from(
 			<T as Config>::PoolPromoteApi::get_pool_rewards(liquidity_asset_id)
 				.ok_or_else(|| DispatchError::from(Error::<T>::NotAPromotedPool))?,
@@ -1021,6 +1037,7 @@ impl<T: Config> Pallet<T> {
 
 		let mut user_mangata_rewards_amount = Balance::try_from(0).unwrap();
 		if work_user != U256::from(0) && work_pool != U256::from(0) {
+			log!(error, "Error::<T>::NotEnoughtRewardsEarned 555");
 			user_mangata_rewards_amount = Balance::try_from(
 				available_rewards_for_pool
 					.checked_mul(work_user)
@@ -1029,6 +1046,7 @@ impl<T: Config> Pallet<T> {
 					.ok_or_else(|| DispatchError::from(Error::<T>::DivisionByZero))?,
 			)
 			.map_err(|_| DispatchError::from(Error::<T>::NotEnoughtRewardsEarned))?;
+			log!(error, "Error::<T>::NotEnoughtRewardsEarned 555 OK, user_mangata_rewards_amount: {:#?}", user_mangata_rewards_amount);
 		}
 
 		Ok(user_mangata_rewards_amount)
@@ -2807,7 +2825,11 @@ impl<T: Config> XykFunctionsTrait<T::AccountId> for Pallet<T> {
 		let burned_not_claimed_rewards =
 			LiquidityMiningUserToBeClaimed::<T>::get((&user, liquidity_asset_id));
 
+		log!(error, "Error::<T>::NotEnoughtRewardsEarned 333");
+		log!(error, "Error::<T>::NotEnoughtRewardsEarned mangata_amount: {:#?}", mangata_amount);
+		log!(error, "Error::<T>::NotEnoughtRewardsEarned current_rewards: {:#?}", current_rewards);
 		ensure!(mangata_amount <= current_rewards, Error::<T>::NotEnoughtRewardsEarned);
+		log!(error, "Error::<T>::NotEnoughtRewardsEarned 333 OK");
 
 		// user is taking out rewards from LP which was already removed from pool
 		if mangata_amount <= burned_not_claimed_rewards {
