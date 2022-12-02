@@ -168,7 +168,7 @@ parameter_types! {
 			X1(Parachain(parachains::turing::ID)),
 		).into(),
 		// TUR:KSM 100:1 & 10:12 decimals
-		0 // workaround makes make execution from turing free
+		roc_per_second()
 	);
 	pub ImbuPerSecond: (AssetId, u128) = (
 		MultiLocation::new(
